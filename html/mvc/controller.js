@@ -11,7 +11,7 @@ class t_eq2_controller{
 	var events = new t_events();
 	
 	//adaugam on_solve (din controller) in lista de functii
-	events.add_event("on_solve_click_uab", this.on_solve.bind(this));
+	events.add_event("on_solve_clicked_uab", this.on_solve.bind(this));
 	// transmitem lista de  functii la view
 	this.view.set_events(events);
 	}
