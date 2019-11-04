@@ -3,6 +3,28 @@ document.getElementById("id_logic").innerHTML = "Logic =2019.11.04.0";
 window.addEventListener("deviceorientation", on_gyro_data_uab);
 window.addEventListener("devicemotion", on_acc_data_uab);
 
+function desenare(unghi_x, unghi_y)
+{
+	//obtinem referinta la canvas 
+	var canvas = document.getElementById("id_canvas");
+	
+	//obtinem referinta la context
+	var context = canvas.getContext("2d")
+	
+	//stergem canvasul
+	context.clearRect (0, 0, canvas.width, canvas.height);
+	
+	// incepem sa contruim o cale (path)
+	context.beginPath();
+	var r = 10;
+	var x = canvas.width / 2 + unghi_x / 90 * (canvas.width /2 -r);
+	var y = canvas.height / 2 + unghi_y / 90 * (canvas.height /2 -r);
+	//adaugam cerul la cale
+	context.arc(,,r,0,2 * Math.PI);
+	//desenam calea
+	context.stroke();
+}
+
 function on_gyro_data_uab(e)
 {
 	document.getElementById("id_alpha").innerHTML =Math.round(e.alpha * 100) /100;
