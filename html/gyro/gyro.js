@@ -9,7 +9,7 @@ function desenare(unghi_x, unghi_y)
 	var canvas = document.getElementById("id_canvas");
 	
 	//obtinem referinta la context
-	var context = canvas.getContext("2d")
+	var context = canvas.getContext("2d");
 	
 	//stergem canvasul
 	context.clearRect (0, 0, canvas.width, canvas.height);
@@ -20,7 +20,7 @@ function desenare(unghi_x, unghi_y)
 	var x = canvas.width / 2 + unghi_x / 90 * (canvas.width /2 -r);
 	var y = canvas.height / 2 + unghi_y / 90 * (canvas.height /2 -r);
 	//adaugam cerul la cale
-	context.arc(,,r,0,2 * Math.PI);
+	context.arc(x,y,r,0,2 * Math.PI);
 	//desenam calea
 	context.stroke();
 }
