@@ -12,15 +12,15 @@ function desenare(unghi_x, unghi_y)
 	var context = canvas.getContext("2d");
 	
 	//stergem canvasul
-	context.clearRect (0, 0, canvas.width, canvas.height);
+	context.clearRect(0, 0, canvas.width, canvas.height);
 	
 	// incepem sa contruim o cale (path)
 	context.beginPath();
 	var r = 10;
-	var x = canvas.width / 2 + unghi_x / 90 * (canvas.width /2 -r);
-	var y = canvas.height / 2 + unghi_y / 90 * (canvas.height /2 -r);
+	var x = canvas.width / 2 + unghi_x / 90 * (canvas.width / 2 -r);
+	var y = canvas.height / 2 + unghi_y / 90 * (canvas.height / 2 -r);
 	//adaugam cerul la cale
-	context.arc(x,y,r,0,2 * Math.PI);
+	context.arc(x ,y ,r ,0 ,2 * Math.PI);
 	//desenam calea
 	context.stroke();
 }
@@ -30,11 +30,14 @@ function on_gyro_data_uab(e)
 	document.getElementById("id_alpha").innerHTML =Math.round(e.alpha * 100) /100;
 	document.getElementById("id_beta").innerHTML = Math.round(e.beta * 100) /100;
 	document.getElementById("id_gamma").innerHTML = Math.round(e.gamma* 100) /100;
+	
+	desenare(e.beta, e.gamma);
 }
 
 function on_acc_data_uab(e)
 {
 	var acc= e.accelerationIncludingGravity;
+	
 	document.getElementById("id_acc_x").innerHTML = Math.round(acc.x * 100) /100;
 	document.getElementById("id_acc_y").innerHTML =Math.round(acc.y * 100) /100;
 	document.getElementById("id_acc_z").innerHTML =Math.round(acc.z * 100) /100;
